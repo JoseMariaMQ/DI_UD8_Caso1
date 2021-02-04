@@ -51,9 +51,12 @@ public class ControllerAsistencias implements EventHandler<ActionEvent> {
                 String nombre = textFieldNombre.getText();
                 LocalDate localDate = LocalDate.now();
                 LocalTime localTime = LocalTime.now();
+                //Formateamos hora para mostrarla en el mensaje
                 DateTimeFormatter formateador = DateTimeFormatter.ofPattern("HH:mm:ss");
+                //Ejecutamos método de la clase que interactúa con la base de datos
                 int result = insertDB.registrarEntrada(nombre, localDate, localTime);
                 textFieldNombre.setText("");
+                //Comprobamos resultado para mostrar mensajes
                 switch (result) {
                     case 1:
                         labelMensaje.setTextFill(Color.web("green"));
@@ -70,6 +73,7 @@ public class ControllerAsistencias implements EventHandler<ActionEvent> {
                     case -2:
                         labelMensaje.setTextFill(Color.web("red"));
                         labelMensaje.setText("Error de registro, prueba de nuevo");
+                        break;
                 }
             }
         }
@@ -86,9 +90,12 @@ public class ControllerAsistencias implements EventHandler<ActionEvent> {
                 String nombre = textFieldNombre.getText();
                 LocalDate localDate = LocalDate.now();
                 LocalTime localTime = LocalTime.now();
+                //Formateamos hora para mostrarla en el mensaje
                 DateTimeFormatter formateador = DateTimeFormatter.ofPattern("HH:mm:ss");
+                //Ejecutamos método de la clase que interactúa con la base de datos
                 int result = insertDB.registrarSalida(nombre, localDate, localTime);
                 textFieldNombre.setText("");
+                //Comprobamos resultado para mostrar mensajes
                 switch (result) {
                     case 1:
                         labelMensaje.setTextFill(Color.web("green"));
@@ -105,6 +112,7 @@ public class ControllerAsistencias implements EventHandler<ActionEvent> {
                     case -3:
                         labelMensaje.setTextFill(Color.web("red"));
                         labelMensaje.setText("Ya hay un registro de salida para " + nombre);
+                        break;
                     case -2:
                         labelMensaje.setTextFill(Color.web("red"));
                         labelMensaje.setText("Error de registro, prueba de nuevo");
