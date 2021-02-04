@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="Model.Asistencias">
+        <id name="id" type="integer"/>
+        <property name="fecha"/>
+        <property name="hora_entrada"/>
+        <property name="hora_salida"/>
+        <property name="id_trabajador"/>
+    </class>
+</hibernate-mapping>
